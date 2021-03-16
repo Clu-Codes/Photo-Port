@@ -6,6 +6,7 @@ import ContactForm from './components/Contact';
 import './App.css';
 
 function App() {
+  const [contactSelected, setContactSelected] = useState(false);
   const [categories] = useState([
     { name: 'commercial', 
     description: 'Photos of grocery stores, food trucks, and other commercial projects'
@@ -23,11 +24,23 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected={contactSelected}
+        setContactSelected={setContactSelected}
       ></Nav>
       <main>
-        <ContactForm></ContactForm>
+        {!contactSelected ? (
+          // '<>' is shorthand for <React.Fragment>
+          <>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
+          </>
+        ) : (
+            <ContactForm></ContactForm>
+        )}
+        
+        {/* <ContactForm></ContactForm>
         <Gallery currentCategory={currentCategory}></Gallery>
-        <About></About>
+        <About></About> */}
       </main>
     </div>
   );
