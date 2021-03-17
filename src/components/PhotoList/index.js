@@ -1,110 +1,120 @@
 import React, { useState } from 'react';
 import photo from '../../assets/small/commercial/0.jpg';
+import Modal from '../Modal';
 
 function PhotoList({ category }) {
-    const [photos] = useState([
-        {
-          name: 'Grocery aisle',
-          category: 'commercial',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Grocery booth',
-          category: 'commercial',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Building exterior',
-          category: 'commercial',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Restaurant table',
-          category: 'commercial',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Cafe interior',
-          category: 'commercial',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Cat green eyes',
-          category: 'portraits',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Green parrot',
-          category: 'portraits',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Yellow macaw',
-          category: 'portraits',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Pug smile',
-          category: 'portraits',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Pancakes',
-          category: 'food',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Burrito',
-          category: 'food',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Scallop pasta',
-          category: 'food',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Burger',
-          category: 'food',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Fruit bowl',
-          category: 'food',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Green river',
-          category: 'landscape',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Docks',
-          category: 'landscape',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Panoramic village by sea',
-          category: 'landscape',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Domestic landscape',
-          category: 'landscape',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-        {
-          name: 'Park bench',
-          category: 'landscape',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
-        },
-      ]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [photos] = useState([
+      {
+        name: 'Grocery aisle',
+        category: 'commercial',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Grocery booth',
+        category: 'commercial',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Building exterior',
+        category: 'commercial',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Restaurant table',
+        category: 'commercial',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Cafe interior',
+        category: 'commercial',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Cat green eyes',
+        category: 'portraits',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Green parrot',
+        category: 'portraits',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Yellow macaw',
+        category: 'portraits',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Pug smile',
+        category: 'portraits',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Pancakes',
+        category: 'food',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Burrito',
+        category: 'food',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Scallop pasta',
+        category: 'food',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Burger',
+        category: 'food',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Fruit bowl',
+        category: 'food',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Green river',
+        category: 'landscape',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Docks',
+        category: 'landscape',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Panoramic village by sea',
+        category: 'landscape',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Domestic landscape',
+        category: 'landscape',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+      {
+        name: 'Park bench',
+        category: 'landscape',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricie',
+      },
+    ]);
 
-    // filters down the photos to match the current category selected, which is chosen from the destructured prop in the PhotoList function declaration. 
-    const currentPhotos = photos.filter((photo) => photo.category === category);
+  // filters down the photos to match the current category selected, which is chosen from the destructured prop in the PhotoList function declaration. 
+  const currentPhotos = photos.filter((photo) => photo.category === category);
+  
+  const [currentPhoto, setCurrentPhoto] = useState();
+  const toggleModal = (image, i) => {
+    setCurrentPhoto({...image, index: i});
+    setIsModalOpen(!isModalOpen);
+  }
 
-    return (
-        <div>
+  return (
+      <div>
+        {/* passing down currentPhoto and toggleModal as props to the Modal child component */}
+        {isModalOpen && <Modal currentPhoto={currentPhoto} onClose={toggleModal}/>}
           <div className='flex-row'>
               {currentPhotos.map((image, i) => (
                   <img
@@ -112,12 +122,13 @@ function PhotoList({ category }) {
                     src={require(`../../assets/small/${category}/${i}.jpg`).default}
                     alt={image.name}
                     className='img-thumbnail mx-1'
+                    onClick={() => toggleModal(image, i)}
                     key={image.name}
                 />
               ))}
           </div>
-        </div>
-    )
+      </div>
+  )
 }
 
 export default PhotoList;
